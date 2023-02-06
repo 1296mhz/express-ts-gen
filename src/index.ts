@@ -4,13 +4,14 @@ import cookieParser from 'cookie-parser';
 import expressSession from 'express-session';
 import path from 'path';
 import dotenv from 'dotenv';
+import logger from 'morgan';
 import indexRouter from './routes/index'
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
 const host = process.env.HOST;
-
+app.use(logger('common'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
