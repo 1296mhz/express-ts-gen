@@ -8,7 +8,7 @@ dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
-
+const host = process.env.HOST;
 
 // To parse URL encoded data
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,5 +27,5 @@ app.set('views', './views');
 app.use('/', indexRouter);
 
 app.listen(port, () => {
-    console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
+    console.log(`⚡️[server]: Server is running at http://${host}:${port}`);
 });
